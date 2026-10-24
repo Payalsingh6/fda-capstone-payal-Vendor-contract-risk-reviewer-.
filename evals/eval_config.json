@@ -1,0 +1,13 @@
+{
+  "eval_name": "contract_deviation_detection",
+  "version": "day03-golden",
+  "dataset_path": "./golden.jsonl",
+  "metrics": ["accuracy", "precision", "recall", "risk_alignment"],
+  "risk_weights": {
+    "LOW": 1,
+    "MEDIUM": 2,
+    "HIGH": 3,
+    "CRITICAL": 5
+  },
+  "pass_threshold": 0.8
+}
