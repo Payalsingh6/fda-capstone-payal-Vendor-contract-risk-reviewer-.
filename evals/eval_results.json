@@ -1,0 +1,9 @@
+{
+  "total": 5,
+  "risks": {
+    "LOW": 2,
+    "HIGH": 1,
+    "MEDIUM": 1,
+    "CRITICAL": 1
+  }
+}
