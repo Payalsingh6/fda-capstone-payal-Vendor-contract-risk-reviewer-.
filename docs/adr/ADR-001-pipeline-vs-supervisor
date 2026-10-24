@@ -1,0 +1,24 @@
+# ADR-001: Pipeline vs Supervisor
+
+Date: 2026-10-24
+Status: Accepted
+
+## Context
+Need 4 agents: Extractor, Comparator, Risk Scorer, Memo Writer. How to orchestrate?
+
+## Options
+1. Pipeline (fixed sequential)
+2. Supervisor (LLM decides next agent)
+
+## Decision
+Pipeline.
+
+## Reason
+- Fixed order: extract -> compare -> score -> memo. No dynamic routing needed.
+- Supervisor adds 1 extra LLM call = more cost > Rs25 and latency >3min - fails NFR.
+- Pipeline easy to log trace_id and cite clause number + playbook ID.
+- Security: planted instruction cannot hijack supervisor to skip steps.
+
+## Consequences
++ Deterministic, cheap, testable
+- Less flexible for parallel processing (can add later)
